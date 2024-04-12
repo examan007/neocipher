@@ -20,15 +20,21 @@ input {
     font-size: 0.75em;
 }
 
-button, textarea {
+textarea {
     font-size: 1em;
 }
 
+button {
+    font-size: 0.1em;
+    border: none;
+    background-color: rgba(0, 0, 0, 0)
+}
 input {
     border: 2px solid #ccc; /* Set border width and color */
     border-radius: 40px; /* Round the corners */
     padding: 0 0.5em 0 0.5em; /* Add padding inside the textarea */
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    margin-bottom: 10px;
 }
 
 textarea {
@@ -57,4 +63,41 @@ textarea {
 .form-label {
     padding-left: 0.5em;
     display: none;
+}
+
+#cipher-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#cipher-controls div {
+    flex-grow: 1;
+}
+
+#encrypt-button {
+    background-image: url('https://test.neolation.com/neocipher/images/cipher-arrow.png');
+}
+
+#decrypt-button {
+    background-image: url('https://test.neolation.com/neocipher/images/plain-arrow.png');
+}
+
+button {
+    background-size: cover;
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image within the button */
+    background-color: rgba(0, 0, 0, 0)
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 50px;
+}
+
+.button-label {
+    font-size: 0.5em;
+}
+.decrypt {
+  vertical-align: top;
 }

@@ -9,14 +9,6 @@
 </head>
 <body>
 <form class="container" action="index.html" method="get">
-  <div>
-    <div class=" form-label">
-      <label for="secretkey">Secret key:</label>
-    </div>
-    <div>
-      <input class="form-control" id="secretkey" placeholder="Enter secret key.">
-    </div>
-  </div>
   <div class="form-group">
     <div class=" form-label">
       <label for="plaintextarea">Plain text:</label>
@@ -25,9 +17,23 @@
       <textarea class="form-control" id="plaintextarea" rows="3" placeholder="Type or paste the plain text message."></textarea>
     </div>
   </div>
-  <div>
-    <button class="btn btn-primary" type="submit">Encrypt</button>
-    <button class="btn btn-primary" type="submit">Decrypt</button>
+  <div id="cipher-controls">
+    <div>
+      <button id="decrypt-button" type="submit"></button>
+      <span class="decrypt button-label">DECRYPT</span>
+    </div>
+    <div>
+      <div class=" form-label">
+        <label for="secretkey">Secret key:</label>
+      </div>
+      <div>
+        <input class="form-control" id="secretkey" placeholder="Enter secret key.">
+      </div>
+    </div>
+    <div>
+      <button id="encrypt-button" type="submit"></button>
+      <span class="button-label">ENCRYPT</span>
+    </div>
   </div>
   <div class="form-group">
     <div class=" form-label">
