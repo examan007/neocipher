@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neolation Cipher Service</title>
+    <link rel="stylesheet" type="text/css" href="css/cipher.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+<form class="container" action="https://test.neolation.com/cipher" method="post">
+  <div>
+    <div class=" form-label">
+      <label for="secretkey">Secret key:</label>
+    </div>
+    <div>
+      <input class="form-control" id="secretkey" placeholder="Enter secret key.">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class=" form-label">
+      <label for="plaintextarea">Plain text:</label>
+    </div>
+    <div class="textareagrow">
+      <textarea class="form-control" id="plaintextarea" rows="3" placeholder="Paste the plain text message."></textarea>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-primary" type="submit">Encrypt</button>
+    <button class="btn btn-primary" type="submit">Decrypt</button>
+  </div>
+  <div class="form-group">
+    <div class=" form-label">
+      <label for="ciphertextarea">Cipher text:</label>
+    </div>
+    <div class="textareagrow">
+      <textarea class="form-control" id="ciphertextarea" rows="3" placeholder="Paste the cipher text message."></textarea>
+    </div>
+  </div>
+</form>
+</body>
+</html>
