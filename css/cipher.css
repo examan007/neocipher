@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 .container {
@@ -50,7 +51,6 @@ textarea {
     margin: auto;
     display: flex;
     flex-direction: column;
-    margin-left: 10%;
     flex-grow: 1;
 }
 
