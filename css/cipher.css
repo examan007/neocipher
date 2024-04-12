@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 3em;
+    padding: 0;
+    margin: 0;
 }
 
 .container {
@@ -9,17 +10,23 @@ body {
     align-items: center;
     flex-direction: column;
     margin-top: 5%;
-    height: 90vh;
+    margin-bottom: 5%;
+    height: 89vh;
+    font-size: 2.5em;
 }
 
-input, button, textarea {
+input {
+    font-size: 0.75em;
+}
+
+button, textarea {
     font-size: 1em;
 }
 
 input {
     border: 2px solid #ccc; /* Set border width and color */
     border-radius: 40px; /* Round the corners */
-    padding: 10px; /* Add padding inside the textarea */
+    padding: 0 0.5em 0 0.5em; /* Add padding inside the textarea */
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1); /* Add a shadow */
 }
 
@@ -28,13 +35,14 @@ textarea {
     height: 100%;
     border: 2px solid #ccc; /* Set border width and color */
     border-radius: 40px; /* Round the corners */
-    padding: 10px; /* Add padding inside the textarea */
+    padding: 0.1em 0.5em 0 0.5em; /* Add padding inside the textarea */
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1); /* Add a shadow */
 }
 
 .textareagrow {
     flex-grow: 1;
-    margin-bottom: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 .form-group {
@@ -47,5 +55,6 @@ textarea {
 }
 
 .form-label {
-    padding-left: 0.25em;
+    padding-left: 0.5em;
+    display: none;
 }
