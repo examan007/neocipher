@@ -18,21 +18,21 @@
     </div>
   </div>
   <div id="cipher-controls">
-    <div>
+    <div class="cipher-operation">
       <button id="decrypt-button" type="submit"></button>
       <span class="decrypt button-label">DECRYPT</span>
     </div>
-    <div>
+    <div class="cipher-operation form-input">
       <div class=" form-label">
         <label for="secretkey">Secret key:</label>
       </div>
       <div>
-        <input class="form-control" id="secretkey" placeholder="Enter secret key.">
+        <input class="form-control" id="secretkey" placeholder="Enter the secret key.">
       </div>
     </div>
-    <div>
+    <div class="cipher-operation">
       <button id="encrypt-button" type="submit"></button>
-      <span class="button-label">ENCRYPT</span>
+      <span class="encrypt button-label">ENCRYPT</span>
     </div>
   </div>
   <div class="form-group">
@@ -44,5 +44,11 @@
     </div>
   </div>
 </form>
+<script src="js/cipher.js"></script>
+<script>
+  console.log("Start.")
+  Cipher()
+  console.log("Done.")
+</script>
 </body>
 </html>

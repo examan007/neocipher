@@ -18,6 +18,7 @@ body {
 
 input {
     font-size: 0.75em;
+    max-width: 60vw;
 }
 
 textarea {
@@ -54,10 +55,10 @@ textarea {
 
 .form-group {
     width: 80%;
-    margin: auto;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    margin-right: 5vw;
 }
 
 .form-label {
@@ -70,18 +71,20 @@ textarea {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
-
-#cipher-controls div {
-    flex-grow: 1;
-}
-
 #encrypt-button {
     background-image: url('https://test.neolation.com/neocipher/images/cipher-arrow.png');
+    transform: translateY(0px);
 }
 
 #decrypt-button {
     background-image: url('https://test.neolation.com/neocipher/images/plain-arrow.png');
+    transform: translateY(-0px);
+}
+
+.form-control {
+    align: center;
 }
 
 button {
@@ -90,14 +93,40 @@ button {
     background-position: center; /* Center the image within the button */
     background-color: rgba(0, 0, 0, 0)
     border: none;
+    height: 60px;
     cursor: pointer;
-    height: 100%;
-    width: 50px;
 }
 
 .button-label {
     font-size: 0.5em;
+    margin-left: 10px;
 }
 .decrypt {
-  vertical-align: top;
+    transform: translateY(0px);
 }
+.encrypt {
+    transform: translateY(0px);
+}
+
+.cipher-operation {
+    display: flex;
+    width: 60%;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cipher-operation button {
+    width: 60px;
+}
+.cipher-operation div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.more-margin {
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
