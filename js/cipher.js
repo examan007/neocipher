@@ -1,4 +1,4 @@
-var Cipher = function () {
+var Cipher = function (session) {
 
     function setFontSize(newsize, selector) {
         try {
@@ -28,7 +28,7 @@ var Cipher = function () {
             // Apply the calculated font size to the body element or any specific element you want to resize
             document.body.style.fontSize = fontSize + "%";
             setFontSize("4em", "textarea")
-            setFontSize("3em", "input")
+            setFontSize("3.2em", "input")
             setFontSize("3em", ".button-label")
             document.querySelectorAll(".form-input").
              forEach((element) => {
@@ -38,9 +38,9 @@ var Cipher = function () {
             // If viewport dimensions are smaller or equal to screen dimensions, reset font size to default
             document.body.style.fontSize = "100%";
             setFontSize("1em", "textarea")
-            setFontSize("0.75em", "input")
+            setFontSize("0.8em", "input")
             setFontSize("1em", ".button-label")
-            document.querySelectorAll(input).
+            document.querySelectorAll(".form-input").
              forEach((element) => {
                 element.classList.remove("more-margin");
              })
@@ -48,11 +48,60 @@ var Cipher = function () {
         console.log("adjusted font size.")
     }
 
+    function getFormValues() {
+        var form = document.getElementById("cipher-form");
+        var data = {};
+        for (var i = 0; i < form.elements.length; i++) {
+            var element = form.elements[i];
+            if ((element.tagName === "INPUT" || element.tagName === "TEXTAREA") && element.type !== "button") {
+                data[element.name] = element.value;
+            }
+        }
+
+        const formData = new URLSearchParams(data)
+        console.log(formData.toString());
+
+        return formData
+    }
+
+    function callCipher(operation) {
+        console.log(operation + ":")
+        const formData = getFormValues()
+        formData.append("operation", operation)
+        session.getAuthenticationCookie('#cipher-form', formData)
+    }
+
     // Call the adjustFontSize function when the window is resized
     window.addEventListener("resize", adjustFontSize);
 
     // Call the adjustFontSize function initially to set font size on page load
     adjustFontSize();
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const buttons = [{
+            id: "encrypt-operation",
+            method: () => { callCipher("encrypt") }
+        },{
+            id: "decrypt-operation",
+            method: () => { callCipher("decrypt") }
+        }]
+        function bindButton(index) {
+            if (index < buttons.length) {
+                const button = buttons[index]
+                console.log("Bind: " + JSON.stringify(button))
+                var element = document.getElementById(button.id);
+                element.addEventListener('click', button.method);
+                bindButton(index + 1)
+            }
+        }
+        bindButton(0)
+        document.querySelectorAll("button").
+         forEach((element) => {
+            element.addEventListener('click', (event) => {
+                event.preventDefault();
+            })
+        })
+    })
 
     return {
     }

@@ -8,47 +8,57 @@
     <link rel="icon" href="https://neolation.com/newneoz.png?7777">
 </head>
 <body>
-<form class="container" action="index.html" method="get">
+<form id="cipher-form" class="container" action="index.html" method="get">
   <div class="form-group">
     <div class=" form-label">
       <label for="plaintextarea">Plain text:</label>
     </div>
     <div class="textareagrow">
-      <textarea class="form-control" id="plaintextarea" rows="3" placeholder="Type or paste the plain text message."></textarea>
+      <textarea name="plaintext" class="form-control" id="plaintextarea" rows="3" placeholder="Type or paste the plain text message."></textarea>
     </div>
   </div>
   <div id="cipher-controls">
-    <div class="cipher-operation">
+    <div id="decrypt-operation" class="cipher-operation">
       <button id="decrypt-button" type="submit"></button>
-      <span class="decrypt button-label">DECRYPT</span>
+      <span class="decrypt button-label">Decrypt</span>
     </div>
     <div class="cipher-operation form-input">
       <div class=" form-label">
         <label for="secretkey">Secret key:</label>
       </div>
       <div>
-        <input class="form-control" id="secretkey" placeholder="Enter the secret key.">
+        <input name="secretkey" class="form-control" id="secretkey" placeholder="Enter the secret key.">
       </div>
     </div>
-    <div class="cipher-operation">
+    <div id="encrypt-operation" class="cipher-operation">
       <button id="encrypt-button" type="submit"></button>
-      <span class="encrypt button-label">ENCRYPT</span>
+      <span class="encrypt button-label">Encrypt</span>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group2">
     <div class=" form-label">
       <label for="ciphertextarea">Cipher text:</label>
     </div>
-    <div class="textareagrow">
-      <textarea class="form-control" id="ciphertextarea" rows="3" placeholder="Paste the cipher text message."></textarea>
+    <div class="textareagrow2">
+      <textarea name="ciphertext" class="form-control" id="ciphertextarea" rows="3" placeholder="Paste the cipher text message."></textarea>
     </div>
+  </div>
+  <div style="display: none;">
+    <input name="serverurl" class="form-control" type="hidden" value="https://demo.neolation.com/index.html">
+    <input name="version" value="1.0" type="hidden">
+    <input name="template" class="form-control" type="hidden" value="sendmessage.html">
+    <input name="datetime" class="form-control" type="hidden" value="2015-03-25">
+    <input name="username" class="form-control" type="hidden" value="james.hayes@neolation.com">
+    <input name="name" class="form-control" type="hidden" placeholder="Your Name">
+    <input name="emailaddress" class="form-control" type="hidden" placeholder="Your Email">
+    <input name="title" class="form-control" type="hidden" placeholder="Your Subject">
+    <textarea name="message" class="form-control" type="hidden" placeholder="Your Message" rows="6"></textarea>
   </div>
 </form>
 <script src="js/cipher.js"></script>
+<script src="https://test.neolation.com/neonow/js/login.js"></script>
 <script>
-  console.log("Start.")
-  Cipher()
-  console.log("Done.")
+  Cipher(LoginManager("https://test.neolation.com/cipher"))
 </script>
 </body>
 </html>
