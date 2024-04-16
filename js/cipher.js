@@ -68,7 +68,19 @@ var Cipher = function (session) {
         console.log(operation + ":")
         const formData = getFormValues()
         formData.append("operation", operation)
-        session.getAuthenticationCookie('#cipher-form', formData)
+        session.getAuthenticationCookie('#cipher-form', formData, (data) => {
+            const response = JSON.parse(data)
+            console.log("new response=[" + JSON.stringify(response, null, 2) + "]")
+            const body = response.body
+            for (var key in body) {
+                if (body.hasOwnProperty(key)) {
+                    var element = document.querySelector('[name="' + key + '"]')
+                    if (element) {
+                        element.value = body[key]
+                    }
+                }
+            }
+        })
     }
 
     // Call the adjustFontSize function when the window is resized
@@ -101,9 +113,20 @@ var Cipher = function (session) {
                 event.preventDefault();
             })
         })
+
+        const textarea = document.getElementById('plaintextarea');
+        textarea.focus();
     })
 
     return {
     }
+}
 
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("secretkey");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
 }
