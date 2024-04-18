@@ -136,6 +136,27 @@ var Cipher = function (session) {
 
         const textarea = document.getElementById('plaintextarea');
         textarea.focus();
+        const key = "plaintext"
+        const textelement = document.querySelector('[name="' + key + '"]')
+        textelement.addEventListener("keydown", function(event) {
+            console.log("keydown")
+            if (event.key === "Backspace" || event.key === " ") {
+              return
+            }
+            var inputValue = event.key;
+            if (/^[A-Z]$/.test(inputValue)) {
+              return
+            }
+            if (/^[a-z]$/.test(inputValue)) {
+              return
+            }
+            event.preventDefault()
+        })
+        textelement.addEventListener("input", function(event) {
+            var inputValue = event.target.value;
+            var lowercaseValue = inputValue.toLowerCase();
+            textarea.value = lowercaseValue;
+        });
     })
 
     return {
