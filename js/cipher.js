@@ -13,6 +13,13 @@ var Cipher = function (session) {
     }
 
     function adjustFontSize() {
+        setFontSize("4em", "textarea")
+        setFontSize("3.2em", "input")
+        setFontSize("3em", ".button-label")
+        document.querySelectorAll(".form-input").
+         forEach((element) => {
+            element.classList.add("more-margin");
+         })
         // Get viewport dimensions
         var viewportWidth = window.innerWidth;
         var viewportHeight = window.innerHeight;
@@ -20,9 +27,22 @@ var Cipher = function (session) {
         // Calculate screen size (you can use a standard size or retrieve actual screen size using media queries)
         var screenWidth = 1920; // Standard screen width
         var screenHeight = 1080; // Standard screen height
-
-        // Check if viewport dimensions are larger than screen dimensions
-        if (viewportWidth > screenWidth || viewportHeight > screenHeight) {
+        // Example JavaScript for screen size detection
+        if (window.innerWidth <= 1000) {
+            // Phone
+            // Calculate font size based on the ratio of screen to viewport dimensions
+            var fontSize = Math.min(viewportWidth / screenWidth, viewportHeight / screenHeight) * 100;
+            // Apply the calculated font size to the body element or any specific element you want to resize
+            document.body.style.fontSize = fontSize + "%";
+            setFontSize("4em", "textarea")
+            setFontSize("3.2em", "input")
+            setFontSize("3em", ".button-label")
+            document.querySelectorAll(".form-input").
+             forEach((element) => {
+                element.classList.add("more-margin");
+             })
+        } else if (window.innerWidth > 600 && window.innerWidth <= 1024) {
+            // Tablet
             // Calculate font size based on the ratio of screen to viewport dimensions
             var fontSize = Math.min(viewportWidth / screenWidth, viewportHeight / screenHeight) * 100;
             // Apply the calculated font size to the body element or any specific element you want to resize
