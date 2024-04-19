@@ -1,5 +1,8 @@
 var Cipher = function (session) {
-
+    var console = {
+        log: function(msg) {},
+        error: function(msg) {}
+    }
     function setFontSize(newsize, selector) {
         try {
             document.querySelectorAll(selector).
@@ -139,16 +142,30 @@ var Cipher = function (session) {
         const key = "plaintext"
         const textelement = document.querySelector('[name="' + key + '"]')
         textelement.addEventListener("keydown", function(event) {
-            console.log("keydown")
-            if (event.key === "Backspace" || event.key === " ") {
-              return
+            console.log("keydown: code=[" + event.keyCode + "] key=[" + event.key + "]")
+            const allowedkeys = [
+                "Home", "End", "Insert", "Delete", "Backspace",
+                "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "
+            ]
+            function testKey(index) {
+                if (index < allowedkeys.length) {
+                    if (allowedkeys[index] === event.key) {
+                        return true
+                    } else {
+                        return testKey(index + 1)
+                    }
+                }
+                return false
             }
+            if (testKey(0)) {
+                return
+            } else
             var inputValue = event.key;
             if (/^[A-Z]$/.test(inputValue)) {
-              return
+                return
             }
             if (/^[a-z]$/.test(inputValue)) {
-              return
+                return
             }
             event.preventDefault()
         })
