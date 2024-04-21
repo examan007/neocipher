@@ -87,12 +87,12 @@ textarea {
     width: 100%;
 }
 #encrypt-button {
-    background-image: url('https://test.neolation.com/neocipher/images/cipher-arrow.png');
+    background-image: url('https://cipher.neolation.com/images/cipher-arrow.png');
     transform: translateY(0px);
 }
 
 #decrypt-button {
-    background-image: url('https://test.neolation.com/neocipher/images/plain-arrow.png');
+    background-image: url('https://cipher.neolation.com/images/plain-arrow.png');
     transform: translateY(-0px);
 }
 
